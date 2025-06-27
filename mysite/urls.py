@@ -14,11 +14,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', welcome, name="welcome"),  
     path('kontak/', kontak, name="kontak"),
+    path('api-auth/', include('rest_framework.urls')),
 
     path('dashboard/', dashboard, name="dashboard"),
     path('dashboard/artikel-list', artikel_list, name="artikel_list"),
 
     path('dashboard/', include("artikel.urls")),
+    path('api/', include("artikel.urls_api")),
 
     ######################### Auhtentication ##########################
     path('auth-login', login, name='login'),
